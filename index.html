@@ -67,7 +67,7 @@ button{font-family:inherit}
 .hero .tile span{font-size:12px;opacity:.85}
 
 .rings{display:grid;grid-template-columns:190px minmax(0,1fr);gap:22px;align-items:center;margin-top:12px}
-.rings svg{width:190px;height:190px}
+.rings>svg{width:190px;height:190px}
 .tw{overflow-x:auto;-webkit-overflow-scrolling:touch}
 .rt{width:100%;border-collapse:collapse;font-size:14px;font-variant-numeric:tabular-nums}
 .rt th{font-size:11px;color:var(--muted);font-weight:600;text-transform:uppercase;text-align:right;padding:0 6px 6px}
@@ -262,8 +262,66 @@ button:focus-visible{outline:2px solid var(--acc);outline-offset:2px}
 .leg2{display:flex;gap:16px;flex-wrap:wrap;justify-content:center;font-size:12px;color:var(--muted);margin-top:12px}
 .leg2>span{display:flex;align-items:center;gap:6px}
 .leg2 .li svg{width:16px;height:16px;display:block}
+.leg2{line-height:18px}.leg2>span{align-items:center}
 @media (max-width:700px){.hbh,.hbr{grid-template-columns:84px minmax(0,1fr) 80px 66px}.hbr .p2,.hbh .p2{display:none}.sumbar b{font-size:17px}}
 @media (max-width:500px){.hbr .pl{display:none}.hbr .bw{padding-bottom:0}.sumbar .pill .l{display:none}.hbh,.hbr{gap:6px}}
+
+/* centratura e icone ovunque */
+.ic{display:inline-grid;place-items:center;flex:none}
+.ic svg{width:18px;height:18px;display:block}
+.card h3{justify-content:center;flex-wrap:wrap;text-align:center}
+.card h3 .sub{margin-left:0}
+.card h3 .sub::before{content:"· "}
+.card h3 .ic{color:var(--tot)}
+.hero{text-align:center}
+.li{display:inline-grid;place-items:center;width:18px;height:18px;flex:none}
+.li svg{width:16px;height:16px;display:block}
+.rt td,.rt th{padding-left:4px;padding-right:4px}
+.rt .pill{font-size:12px;padding:3px 6px}
+@media (min-width:641px) and (max-width:900px){.rings{grid-template-columns:150px minmax(0,1fr);gap:14px}.rings>svg{width:150px;height:150px}.rt{font-size:13px}}
+@media (max-width:640px){.rt{font-size:12px}.rt td:first-child .ic{display:none}.rt .pill{font-size:11px;padding:2px 5px}}
+.hero .hic{width:44px;height:44px;border-radius:14px;background:rgba(255,255,255,.18);margin:0 auto 8px;display:grid;place-items:center}
+.hero .hic svg{width:24px;height:24px}
+.hero .tile{display:flex;flex-direction:column;align-items:center;text-align:center;gap:2px;padding:12px 8px}
+.hero .tile .ic{width:30px;height:30px;border-radius:10px;background:rgba(255,255,255,.18);margin-bottom:4px}
+.hero .tile .ic svg{width:17px;height:17px}
+.yearsum div{display:flex;flex-direction:column;align-items:center;text-align:center;gap:2px;padding:14px 10px}
+.yearsum .ic{width:36px;height:36px;border-radius:11px;background:var(--card);color:var(--tot);margin-bottom:4px}
+.yearsum div.g .ic{background:rgba(255,255,255,.18);color:#fff}
+.yearsum b{margin:0}
+.rt td:first-child .ic{margin-right:8px;vertical-align:-4px;display:inline-grid}
+.rt th,.rt td{text-align:center}
+.rt th:first-child,.rt td:first-child{text-align:left}
+.ringfoot{justify-content:center;text-align:center}
+.hl .card{text-align:center;align-items:stretch}
+.hl .pills{justify-content:center}
+.hl h3 .ic{width:28px;height:28px;border-radius:9px;background:var(--fill)}
+.hl h3 .ic svg{width:16px;height:16px}
+.callout{flex-direction:column;align-items:center;text-align:center}
+.callout #coPills{display:flex;justify-content:center;gap:6px;flex-wrap:wrap}
+.callout .det{text-align:center}
+.leg{justify-content:center}
+.leg>span{display:inline-flex;align-items:center}
+.leg .ic{margin-right:6px}
+.leg .ic svg{width:15px;height:15px}
+.sec{justify-content:center;gap:14px;flex-wrap:wrap}
+.grand{text-align:center}
+.grand .hic{width:44px;height:44px;border-radius:14px;background:rgba(255,255,255,.18);margin:0 auto 8px;display:grid;place-items:center}
+.grand .hic svg{width:24px;height:24px}
+#grandSub{display:flex;justify-content:center;gap:14px;flex-wrap:wrap;opacity:.9}
+#grandSub>span{display:inline-flex;align-items:center;gap:5px}
+#grandSub .ic svg{width:16px;height:16px}
+.yr{text-align:center;justify-items:center}
+.yr .top{flex-direction:column;align-items:center;gap:2px}
+.yr .top .yy{display:inline-flex;align-items:center;gap:6px;font-size:16px;font-weight:700;color:var(--muted)}
+.yr .stack{width:100%}
+.yr .meta{justify-content:center;gap:16px}
+.yr .meta>span{display:inline-flex;align-items:center;gap:5px}
+.yr .meta .ic svg{width:15px;height:15px}
+.res .card{display:flex;flex-direction:column;align-items:center;text-align:center;gap:2px}
+.res .card .ic{width:34px;height:34px;border-radius:11px;background:var(--fill);color:var(--tot);margin-bottom:4px}
+.cupc{color:#b8860b!important}
+.lastm .hbr .m small.yr2{color:var(--muted);font-weight:400}
 </style>
 </head>
 <body>
@@ -284,23 +342,23 @@ button:focus-visible{outline:2px solid var(--acc);outline-offset:2px}
   <section class="view" id="v-home">
    <div class="lt"><div><div class="date" id="today"></div><h1>Riepilogo</h1></div><button class="iconbtn" type="button" data-open="v-settings" aria-label="Impostazioni"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1.1 1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8V9a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"/></svg></button></div>
    <div class="hero" id="hero"></div>
-   <div class="card"><h3><span class="dot" style="background:var(--tot)"></span>Fatturato per anno<span class="sub">fatture + cassa</span></h3><div class="yearsum" id="yearsum"></div></div>
+   <div class="card"><h3><span class="ic" id="icYS"></span>Fatturato per anno<span class="sub">fatture + cassa</span></h3><div class="yearsum" id="yearsum"></div></div>
    <div class="card" id="ringCard">
-    <h3><span class="dot" style="background:var(--tot)"></span><span id="ringTitle"></span><span class="sub" id="ringSub"></span></h3>
+    <h3><span class="ic" id="icRing"></span><span id="ringTitle"></span><span class="sub" id="ringSub"></span></h3>
     <div class="rings"><svg id="rings" viewBox="0 0 200 200"></svg><div class="tw"><table class="rt" id="rt"></table></div></div>
     <div class="ringfoot" id="ringfoot"></div>
    </div>
    <div class="sec">In evidenza</div>
    <div class="hl" id="hl"></div>
    <div class="card chart">
-    <h3><span class="dot" style="background:var(--ft)"></span>Incasso mese per mese<span class="sub">fatture + cassa</span></h3>
+    <h3><span class="ic" id="icBars"></span>Incasso mese per mese<span class="sub">fatture + cassa</span></h3>
     <div class="ctrls"><div class="seg" id="segYear"></div><div class="seg" id="segPct"><button type="button" data-p="mom" class="on">% mese prima</button><button type="button" data-p="yoy">% anno prima</button></div></div>
     <div class="callout"><div><small id="coLab"></small><b class="num" id="coVal"></b></div><div><div id="coPills"></div><div class="det" id="coDet"></div></div></div>
     <svg id="bars" viewBox="0 0 700 270"></svg>
-    <div class="leg"><span><i style="background:var(--ft)"></i>Fatture</span><span><i style="background:var(--cs)"></i>Cassa</span><span><i style="background:var(--muted);height:2px;vertical-align:3px"></i>Media mensile</span><span id="pctLeg"></span></div>
+    <div class="leg"><span><span class="ic ftc" data-ic="ft"></span>Fatture</span><span><span class="ic csc" data-ic="cs"></span>Cassa</span><span><i style="background:var(--muted);height:2px;vertical-align:3px"></i>Media mensile</span><span id="pctLeg"></span></div>
    </div>
    <div class="sec">Ultimi mesi <a data-open="v-months">Tutti i mesi</a></div>
-   <div class="card tcard"><div class="tw"><table class="mt" id="lastTable"></table></div></div>
+   <div class="card lastm" id="lastCard"></div>
   </section>
 
   <!-- mesi -->
@@ -314,10 +372,10 @@ button:focus-visible{outline:2px solid var(--acc);outline-offset:2px}
   <!-- anni -->
   <section class="view" id="v-years">
    <div class="lt"><div><div class="date" id="yearsDate"></div><h1>Anni</h1></div></div>
-   <div class="grand"><small>Gran totale incassato</small><b class="num" id="grandTot"></b><span id="grandSub"></span></div>
+   <div class="grand"><div class="hic" data-ic="sum"></div><small>Gran totale incassato</small><b class="num" id="grandTot"></b><span id="grandSub"></span></div>
    <div id="yearCards" style="display:grid;gap:14px"></div>
    <div class="card" id="cumCard">
-    <h3><span class="dot" style="background:var(--tot)"></span><span id="cumTitle"></span><span class="sub">incassato progressivo</span></h3>
+    <h3><span class="ic" id="icCum"></span><span id="cumTitle"></span><span class="sub">incassato progressivo</span></h3>
     <svg id="cumul" viewBox="0 0 700 220" style="display:block;width:100%;height:220px;margin-top:12px;overflow:visible"></svg>
     <div class="leg" id="cumLeg"></div>
    </div>
@@ -333,10 +391,10 @@ button:focus-visible{outline:2px solid var(--acc);outline-offset:2px}
    </div>
    <div class="foot" id="cFoot"></div>
    <div class="res">
-    <div class="card"><small>Cassa del mese</small><b class="num" id="rCs">—</b></div>
-    <div class="card"><small>Incasso del mese (fatture + cassa)</small><b class="num" id="rTot">—</b></div>
-    <div class="card"><small id="rMomL">Vs mese prima</small><b class="num" id="rMom">—</b></div>
-    <div class="card"><small id="rYoyL">Vs anno prima</small><b class="num" id="rYoy">—</b></div>
+    <div class="card"><span class="ic csc" data-ic="cs"></span><small>Cassa del mese</small><b class="num" id="rCs">—</b></div>
+    <div class="card"><span class="ic" data-ic="tot"></span><small>Incasso del mese (fatture + cassa)</small><b class="num" id="rTot">—</b></div>
+    <div class="card"><span class="ic" data-ic="trend"></span><small id="rMomL">Vs mese prima</small><b class="num" id="rMom">—</b></div>
+    <div class="card"><span class="ic" data-ic="prev"></span><small id="rYoyL">Vs anno prima</small><b class="num" id="rYoy">—</b></div>
    </div>
    <div class="err" id="cErr"></div>
    <button class="btn" type="button" id="cSave">Salva mese</button>
@@ -381,7 +439,7 @@ button:focus-visible{outline:2px solid var(--acc);outline-offset:2px}
  <div class="pad" id="pad"></div>
  <button class="lnk" type="button" id="lockForgot">Ho dimenticato il PIN</button>
  <button class="lnk" type="button" id="lockCancel" hidden>Annulla</button>
- <small style="opacity:.6;font-size:12px">versione 1.0.6</small>
+ <small style="opacity:.6;font-size:12px">versione 1.0.7</small>
 </div>
 
 <div class="toast" id="toast"></div>
@@ -389,9 +447,24 @@ button:focus-visible{outline:2px solid var(--acc);outline-offset:2px}
 
 <script>
 'use strict';
-const VERSION='1.0.6';
+const VERSION='1.0.7';
 const LS_DATA='incassi.data.v1', LS_SET='incassi.settings.v1';
 const M=['Gen','Feb','Mar','Apr','Mag','Giu','Lug','Ago','Set','Ott','Nov','Dic'];
+const IC={
+ cal:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>',
+ tot:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><ellipse cx="12" cy="6" rx="7" ry="3"/><path d="M5 6v6c0 1.7 3.1 3 7 3s7-1.3 7-3V6M5 12v6c0 1.7 3.1 3 7 3s7-1.3 7-3v-6"/></svg>',
+ ft:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5M9 13h6M9 17h4"/></svg>',
+ cs:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="2" y="6" width="20" height="12" rx="2"/><circle cx="12" cy="12" r="2.5"/><path d="M6 10v.01M18 14v.01"/></svg>',
+ prev:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 3v5h5M12 7v5l3 2"/></svg>',
+ trend:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l6-6 4 4 8-8"/><path d="M15 7h6v6"/></svg>',
+ avg:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 20h16"/><rect x="5" y="11" width="3" height="6" rx="1"/><rect x="10.5" y="7" width="3" height="10" rx="1"/><rect x="16" y="13" width="3" height="4" rx="1"/><path d="M3 9h18" stroke-dasharray="2 3"/></svg>',
+ cmp:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 4v16M7 4l-3 3M7 4l3 3M17 20V4M17 20l-3-3M17 20l3-3"/></svg>',
+ bars:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 20h16M7 16v-5M12 16V6M17 16v-8"/></svg>',
+ ring:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/></svg>',
+ cup:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 4h8v5a4 4 0 0 1-8 0z"/><path d="M8 6H5a3 3 0 0 0 3 4M16 6h3a3 3 0 0 1-3 4M12 13v4M8 20h8M10 17h4"/></svg>',
+ sum:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 4.5v9L12 21l-8-4.5v-9z"/><path d="M12 12l8-4.5M12 12v9M12 12L4 7.5"/></svg>'};
+function fillIcons(){[['icYS','cal'],['icRing','ring'],['icBars','bars'],['icCum','trend']].forEach(([id,n])=>{const e=document.getElementById(id);if(e)e.innerHTML=IC[n]});document.querySelectorAll('[data-ic]').forEach(e=>e.innerHTML=IC[e.dataset.ic])}
+const ico=(n,c='')=>`<span class="ic ${c}">${IC[n]}</span>`;
 const ML=['Gennaio','Febbraio','Marzo','Aprile','Maggio','Giugno','Luglio','Agosto','Settembre','Ottobre','Novembre','Dicembre'];
 const PAL=[
  ['Blu oceano',{h1:'#0b3c5d',h2:'#1d6fa3',tot:'#0b3c5d',ft:'#1d6fa3',cs:'#8ec5e8',acc:'#1d6fa3'}],
@@ -467,7 +540,7 @@ function drawHero(){
  const mx=Math.max(...cum.filter(ok),...(c25?c25.filter(ok):[]),1),X=i=>i/11*600,Y=v=>96-v/mx*86;
  const pts=arr=>arr.map((v,i)=>v==null?null:`${X(i).toFixed(1)},${Y(v).toFixed(1)}`).filter(Boolean).join(' ');
  const first=idx[0];
- $('hero').innerHTML=`<small>Incassato nel ${y} · fatture + cassa</small>
+ $('hero').innerHTML=`<div class="hic">${IC.tot}</div><small>Incassato nel ${y} · fatture + cassa</small>
  <div class="big num">${eur(S)}</div>
  <div class="cap">${sp?`${sp.cur>=sp.prev?'▲':'▼'} <b>${pc(sp.cur/sp.prev-1)}</b> (${sgnEur(sp.cur-sp.prev)}) rispetto a ${rangeLab(idx)} ${y-1}`:`${rangeLab(idx)} ${y}`}</div>
  <svg viewBox="0 0 600 100" preserveAspectRatio="none"><defs><linearGradient id="hg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff" stop-opacity=".4"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></linearGradient></defs>
@@ -476,15 +549,15 @@ function drawHero(){
  <circle cx="${X(m)}" cy="${Y(cum[m])}" r="5" fill="#fff"/></svg>
  <div class="ax"><span>Gen</span><span>— ${y}${c25?` · - - ${y-1}`:''} progressivo</span><span>Dic</span></div>
  <div class="tiles">
-  <div class="tile"><small>${ML[m]} incassato</small><b class="num">${eur(T(y,m))}</b><span>fatture + cassa</span></div>
-  <div class="tile"><small>${ML[m]} vs ${prevLab(y,m)}</small><b>${ok(mom(y,m))?pc(mom(y,m)):'—'}</b><span>${ok(mom(y,m))?sgnEur(T(y,m)-prevOf(y,m)):''}</span></div>
-  <div class="tile"><small>${ML[m]} vs ${ML[m].toLowerCase()} ${y-1}</small><b>${ok(yoy(y,m))?pc(yoy(y,m)):'—'}</b><span>${ok(yoy(y,m))?sgnEur(T(y,m)-T(y-1,m)):''}</span></div>
-  <div class="tile"><small>Media al mese</small><b class="num">${eur(avg)}</b><span>${avgPrev?pc(avg/avgPrev-1)+' sul '+(y-1):idx.length+' mesi'}</span></div>
+  <div class="tile">${ico('cal')}<small>${ML[m]} incassato</small><b class="num">${eur(T(y,m))}</b><span>fatture + cassa</span></div>
+  <div class="tile">${ico('trend')}<small>${ML[m]} vs ${prevLab(y,m)}</small><b>${ok(mom(y,m))?pc(mom(y,m)):'—'}</b><span>${ok(mom(y,m))?sgnEur(T(y,m)-prevOf(y,m)):''}</span></div>
+  <div class="tile">${ico('prev')}<small>${ML[m]} vs ${ML[m].toLowerCase()} ${y-1}</small><b>${ok(yoy(y,m))?pc(yoy(y,m)):'—'}</b><span>${ok(yoy(y,m))?sgnEur(T(y,m)-T(y-1,m)):''}</span></div>
+  <div class="tile">${ico('avg')}<small>Media al mese</small><b class="num">${eur(avg)}</b><span>${avgPrev?pc(avg/avgPrev-1)+' sul '+(y-1):idx.length+' mesi'}</span></div>
  </div>`;
 }
 function drawYearSum(){
  const tot=sum(YEARS.map(yearTot));
- $('yearsum').innerHTML=YEARS.slice().reverse().map(y=>{const idx=monthsOf(y),sp=samePeriod(y);return `<div><small>${y}</small><b class="num">${eur(yearTot(y))}</b><span>${rangeLab(idx)}${sp?' · <span class="'+cls(sp.cur-sp.prev)+'">'+pc(sp.cur/sp.prev-1)+'</span>':''}</span></div>`}).join('')+`<div class="g"><small>Gran totale</small><b class="num">${eur(tot)}</b><span>dal ${ML[monthsOf(YEARS[0])[0]].toLowerCase()} ${YEARS[0]}</span></div>`;
+ $('yearsum').innerHTML=YEARS.slice().reverse().map(y=>{const idx=monthsOf(y),sp=samePeriod(y);return `<div>${ico('cal')}<small>${y}</small><b class="num">${eur(yearTot(y))}</b><span>${rangeLab(idx)}${sp?' · <span class="'+cls(sp.cur-sp.prev)+'">'+pc(sp.cur/sp.prev-1)+'</span>':''}</span></div>`}).join('')+`<div class="g">${ico('sum')}<small>Gran totale</small><b class="num">${eur(tot)}</b><span>dal ${ML[monthsOf(YEARS[0])[0]].toLowerCase()} ${YEARS[0]}</span></div>`;
 }
 function drawRings(){
  const {y}=LAST,sp=samePeriod(y);
@@ -495,7 +568,7 @@ function drawRings(){
   s+=`<circle cx="100" cy="100" r="${rad}" fill="none" stroke="${r[3]}" stroke-opacity=".15" stroke-width="19"/><circle cx="100" cy="100" r="${rad}" fill="none" stroke="${r[3]}" stroke-width="19" stroke-linecap="round" stroke-dasharray="${(p*c).toFixed(1)} ${c.toFixed(1)}" transform="rotate(-90 100 100)"/>`;
   if(ratio>1){const ex=Math.min((ratio-1)*c,c);s+=`<circle cx="100" cy="100" r="${rad}" fill="none" stroke="#fff" stroke-opacity=".6" stroke-width="5" stroke-linecap="round" stroke-dasharray="${ex.toFixed(1)} ${c.toFixed(1)}" transform="rotate(-90 100 100)"/>`}});
  $('rings').innerHTML=s;
- $('rt').innerHTML=`<tr><th></th><th>${y}</th><th>${y-1}</th><th>Differenza</th><th>%</th></tr>`+R.map(r=>`<tr><td><i style="background:${r[3]}"></i>${r[0]}</td><td><b>${eur(r[1])}</b></td><td>${eur(r[2])}</td><td class="${cls(r[1]-r[2])}">${sgnEur(r[1]-r[2])}</td><td>${pill(r[2]?r[1]/r[2]-1:null)}</td></tr>`).join('');
+ $('rt').innerHTML=`<tr><th></th><th>${y}</th><th>${y-1}</th><th>Differenza</th><th>%</th></tr>`+R.map((r,j)=>`<tr><td>${ico(['tot','ft','cs'][j],['','ftc','csc'][j])}${r[0]}</td><td><b>${eur(r[1])}</b></td><td>${eur(r[2])}</td><td class="${cls(r[1]-r[2])}">${sgnEur(r[1]-r[2])}</td><td>${pill(r[2]?r[1]/r[2]-1:null)}</td></tr>`).join('');
  const full=yearTot(y-1),fullComplete=monthsOf(y-1).length===12;
  $('ringfoot').innerHTML=fullComplete?`<span>Tutto il ${y-1}: <b>${eur(full)}</b></span><span>${yearTot(y)>=full?'<b class="up">Già superato!</b>':`Ti mancano <b>${eur(full-yearTot(y))}</b> per superarlo (${Math.round(yearTot(y)/full*100)}% raggiunto)`}</span>`:`<span>${y-1}: ${eur(full)} (${rangeLab(monthsOf(y-1))})</span>`;
 }
@@ -516,9 +589,9 @@ function drawHL(){
   [C('tot'),`${ML[m]} ${y}`,`${ML[m]} ha incassato <b>${eur(d.t[m])}</b>, <b>${d.t[m]>=avg?'sopra':'sotto'}</b> la media mensile di ${eur(Math.abs(d.t[m]-avg))}.`,pill(mom(y,m),'vs '+prevLab(y,m))+pill(yoy(y,m),'vs '+ML[m].toLowerCase()+' '+(y-1)),barsMini(idx,d.t,null,m,C('tot'),null,i=>mom(y,i))],
   [C('ft'),`Ultimi ${last6.length} mesi`,ok(p6)?`Da ${ML[last6[0]].toLowerCase()} a ${ML[m].toLowerCase()} hai incassato <b>${pc(p6)}</b> rispetto agli stessi mesi del ${y-1}.`:`Da ${ML[last6[0]].toLowerCase()} a ${ML[m].toLowerCase()} hai incassato <b>${eur(sum(last6.map(i=>T(y,i))))}</b>.`,`<span class="pill na"><span class="dot" style="background:${C('ft')}55;width:8px;height:8px"></span>${y-1}</span><span class="pill na"><span class="dot" style="background:${C('ft')};width:8px;height:8px"></span>${y}</span>`,barsMini(last6,d.t,D[y-1]?D[y-1].t:null,m,C('ft'),C('ft')+'55',i=>yoy(y,i))],
   [C('cs'),`Cassa · ${y}`,`In ${ML[m].toLowerCase()} la cassa è stata <b>${eur(d.cs[m])}</b>, il <b>${Math.round(share*100)}%</b> dell'incasso del mese (media anno ${Math.round(shareAvg*100)}%).`,pill(csPrevM?d.cs[m]/csPrevM-1:null,'vs '+prevLab(y,m))+pill(csPrevY?d.cs[m]/csPrevY-1:null,'vs '+(y-1)),barsMini(idx,d.cs,null,m,C('cs'),null,null)],
-  ['#b8860b',`🏆 Mese migliore ${y}`,`Il mese con l'incasso più alto (fatture + cassa) è <b>${ML[best].toLowerCase()} 🏆</b>: ${eur(d.t[best])}.${second!=null?` Secondo: ${ML[second].toLowerCase()} con ${eur(d.t[second])}.`:''}`,pill(d.t[best]/avg-1,'sulla media')+pill(yoy(y,best),'vs '+ML[best].toLowerCase()+' '+(y-1)),barsMini(idx,d.t,null,best,'#d4a72c',null,null)]
+  ['#b8860b',`Mese migliore ${y} 🏆`,`Il mese con l'incasso più alto (fatture + cassa) è <b>${ML[best].toLowerCase()} 🏆</b>: ${eur(d.t[best])}.${second!=null?` Secondo: ${ML[second].toLowerCase()} con ${eur(d.t[second])}.`:''}`,pill(d.t[best]/avg-1,'sulla media')+pill(yoy(y,best),'vs '+ML[best].toLowerCase()+' '+(y-1)),barsMini(idx,d.t,null,best,'#d4a72c',null,null)]
  ];
- $('hl').innerHTML=cards.map(c=>`<div class="card"><h3><span class="dot" style="background:${c[0]}"></span><span>${c[1]}</span></h3><p>${c[2]}</p><div class="pills">${c[3]}</div>${c[4]}</div>`).join('');
+ $('hl').innerHTML=cards.map((c,j)=>`<div class="card"><h3>${ico(['cal','trend','cs','cup'][j],['','ftc','csc','cupc'][j])}<span>${c[1]}</span></h3><p>${c[2]}</p><div class="pills">${c[3]}</div>${c[4]}</div>`).join('');
 }
 let curY=null,sel=null,pctMode='mom';
 function drawSegYear(){$('segYear').innerHTML=YEARS.map(y=>`<button type="button" data-y="${y}" class="${y===curY?'on':''}">${y}</button>`).join('');$$('#segYear button').forEach(b=>b.onclick=()=>{curY=+b.dataset.y;const ii=monthsOf(curY);sel=ii[ii.length-1];drawSegYear();drawBars()})}
@@ -557,20 +630,15 @@ function tableHTML(y,idx,withSum,clickable){
 }
 function bindRows(el){el.querySelectorAll('tr.row').forEach(r=>r.onclick=()=>openEdit(r.dataset.k))}
 function drawLast(){const {y,m}=LAST;const rows=[];let yy=y,mm=m;for(let n=0;n<4;n++){if(T(yy,mm)!=null)rows.push([yy,mm]);[yy,mm]=prevYM(yy,mm)}
- // tabella con anni misti
- const byY={};let h='';$('lastTable').innerHTML='';
- const parts=rows.map(([a,b])=>tableHTML(a,[b],false,true));
- // unisci: prima intestazione + righe
- const tmp=document.createElement('table');tmp.innerHTML=parts[0]||'';
- const tb=tmp.querySelector('tbody');parts.slice(1).forEach(p=>{const t2=document.createElement('table');t2.innerHTML=p;tb.appendChild(t2.querySelector('tbody tr'))});
- $('lastTable').innerHTML=tmp.innerHTML;bindRows($('lastTable'));}
+ const mx=Math.max(1,...rows.map(([a,b])=>Math.max(T(a,b)||0,T(a-1,b)||0)));
+ const multi=new Set(rows.map(r=>r[0])).size>1;
+ $('lastCard').innerHTML=`<div class="hbh"><span>Mese</span><span>Fatture + cassa</span><span>Incasso</span><span class="p2">Vs mese</span><span>Vs anno</span></div><div>${rows.map(([a,b])=>monthRow(a,b,mx,bestOf(a),true)).join('')}</div><div class="leg2"><span><span class="li ftc">${IC.ft}</span>Fatture</span><span><span class="li csc">${IC.cs}</span>Cassa</span><span><span class="li pvc">${IC.prev}</span>Stesso mese anno prima</span></div>`;
+ $$('#lastCard .hbr[data-k]').forEach(r=>r.onclick=()=>openEdit(r.dataset.k))}
 let monthsY=null;
-const IC={
- cal:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>',
- tot:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><ellipse cx="12" cy="6" rx="7" ry="3"/><path d="M5 6v6c0 1.7 3.1 3 7 3s7-1.3 7-3V6M5 12v6c0 1.7 3.1 3 7 3s7-1.3 7-3v-6"/></svg>',
- ft:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5M9 13h6M9 17h4"/></svg>',
- cs:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="2" y="6" width="20" height="12" rx="2"/><circle cx="12" cy="12" r="2.5"/><path d="M6 10v.01M18 14v.01"/></svg>',
- prev:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 3v5h5M12 7v5l3 2"/></svg>'};
+
+const sgE=n=>(n>=0?'+':'−')+grp(n)+' €';
+function monthRow(y,i,mx,best,withY){const d=D[y],P=D[y-1]||null,v=d.t[i]||0,p=P?P.t[i]:null,hasP=p!=null;
+  return `<div class="hbr" data-k="${key(y,i)}"><span class="m">${ML[i]}${withY?` <small class="yr2" style="display:inline">${y}</small>`:''}${i===best&&monthsOf(y).length>1?'<span class="cup">🏆</span>':''}<small><span class="mi ftc">${IC.ft}</span>${grp(d.ft[i]||0)}</small><small><span class="mi csc">${IC.cs}</span>${grp(d.cs[i]||0)}</small>${d.note[i]?`<span class="nt">${esc(d.note[i])}</span>`:''}</span><span class="bw"><span class="bar" style="width:${v/mx*100}%"><i style="width:${v?(d.ft[i]||0)/v*100:0}%;background:var(--ft)"></i><i style="width:${v?(d.cs[i]||0)/v*100:0}%;background:var(--cs)"></i></span>${hasP?`<span class="prev" style="width:${p/mx*100}%"></span><span class="tick" style="left:${p/mx*100}%"></span><span class="pl"><span class="mi">${IC.prev}</span>${y-1}: ${eur(p)}</span>`:''}</span><span class="v num">${eur(v)}${hasP?`<small class="${cls(v-p)}">${sgE(v-p)}</small>`:''}</span><span class="p p2">${pill(mom(y,i))}</span><span class="p">${pill(yoy(y,i))}</span></div>`}
 function drawMonths(){if(!YEARS.includes(monthsY))monthsY=LAST.y;
  const y=monthsY,d=D[y],P=D[y-1]||null,idx=monthsOf(y),best=bestOf(y);
  $('segMonths').innerHTML=YEARS.map(yy=>`<button type="button" data-y="${yy}" class="${yy===y?'on':''}">${IC.cal}${yy}</button>`).join('');
@@ -580,9 +648,7 @@ function drawMonths(){if(!YEARS.includes(monthsY))monthsY=LAST.y;
  $('monthSum').innerHTML=`<div class="sumbar"><div class="sb tot"><span class="ib">${IC.tot}</span><small>Totale ${y}</small><b class="num">${eur(S)}</b><span class="sbp">${sp?pill(sp.cur/sp.prev-1,'vs '+(y-1)):rangeLab(idx)}</span></div><div class="sb"><span class="ib ftc">${IC.ft}</span><small>Fatture</small><b class="num">${eur(F)}</b><span class="sbp">${shr(F)}</span></div><div class="sb"><span class="ib csc">${IC.cs}</span><small>Cassa</small><b class="num">${eur(Cs)}</b><span class="sbp">${shr(Cs)}</span></div></div>`;
  const pv=i=>P?P.t[i]:null;
  const mx=Math.max(1,...idx.map(i=>d.t[i]||0),...idx.map(i=>pv(i)||0));
- const sg=n=>(n>=0?'+':'−')+grp(n)+' €';
- const rows=idx.slice().reverse().map(i=>{const v=d.t[i]||0,p=pv(i),hasP=p!=null;
-  return `<div class="hbr" data-k="${key(y,i)}"><span class="m">${ML[i]}${i===best&&idx.length>1?'<span class="cup">🏆</span>':''}<small><span class="mi ftc">${IC.ft}</span>${grp(d.ft[i]||0)}</small><small><span class="mi csc">${IC.cs}</span>${grp(d.cs[i]||0)}</small>${d.note[i]?`<span class="nt">${esc(d.note[i])}</span>`:''}</span><span class="bw"><span class="bar" style="width:${v/mx*100}%"><i style="width:${v?(d.ft[i]||0)/v*100:0}%;background:var(--ft)"></i><i style="width:${v?(d.cs[i]||0)/v*100:0}%;background:var(--cs)"></i></span>${hasP?`<span class="prev" style="width:${p/mx*100}%"></span><span class="tick" style="left:${p/mx*100}%"></span><span class="pl"><span class="mi">${IC.prev}</span>${y-1}: ${eur(p)}</span>`:''}</span><span class="v num">${eur(v)}${hasP?`<small class="${cls(v-p)}">${sg(v-p)}</small>`:''}</span><span class="p p2">${pill(mom(y,i))}</span><span class="p">${pill(yoy(y,i))}</span></div>`}).join('');
+ const rows=idx.slice().reverse().map(i=>monthRow(y,i,mx,best,false)).join('');
  $('monthCard').innerHTML=`<div class="hbh"><span>Mese</span><span>${y} · fatture + cassa</span><span>Incasso</span><span class="p2">Vs mese</span><span>Vs anno</span></div><div>${rows}</div><div class="leg2"><span><span class="li ftc">${IC.ft}</span>Fatture ${y}</span><span><span class="li csc">${IC.cs}</span>Cassa ${y}</span>${P?`<span><span class="li pvc">${IC.prev}</span>Stesso mese ${y-1}</span>`:''}</div>`;
  $$('#monthCard .hbr[data-k]').forEach(r=>r.onclick=()=>openEdit(r.dataset.k))}
 
@@ -590,11 +656,11 @@ function drawMonths(){if(!YEARS.includes(monthsY))monthsY=LAST.y;
 function drawYears(){
  const TOT=sum(YEARS.map(yearTot)),f0=YEARS[0];
  $('yearsDate').textContent='Dal '+ML[monthsOf(f0)[0]].toLowerCase()+' '+f0;
- $('grandTot').textContent=eur(TOT);$('grandSub').textContent=`Fatture ${eur(sum(YEARS.map(y=>sum(D[y].ft))))} + Cassa ${eur(sum(YEARS.map(y=>sum(D[y].cs))))}`;
+ $('grandTot').textContent=eur(TOT);$('grandSub').innerHTML=`<span>${ico('ft')}Fatture ${eur(sum(YEARS.map(y=>sum(D[y].ft))))}</span><span>${ico('cs')}Cassa ${eur(sum(YEARS.map(y=>sum(D[y].cs))))}</span>`;
  $('yearCards').innerHTML=YEARS.slice().reverse().map(y=>{const S=yearTot(y),F=sum(D[y].ft),Cc=sum(D[y].cs),sp=samePeriod(y),idx=monthsOf(y);
-  return `<div class="card yr"><div class="top"><b class="num">${eur(S)}</b><span style="font-size:22px;font-weight:700;color:var(--muted)">${y}</span></div>
+  return `<div class="card yr"><div class="top"><span class="yy">${ico('cal')}${y}</span><b class="num">${eur(S)}</b></div>
   <div class="stack"><i style="width:${S?F/S*100:0}%;background:var(--ft)"></i><i style="width:${S?Cc/S*100:0}%;background:var(--cs)"></i></div>
-  <div class="meta"><span>Fatture ${eur(F)} · Cassa ${eur(Cc)}</span><span>${rangeLab(idx)} · media ${eur(S/idx.length)}/mese</span></div>${sp?`<div>${pill(sp.cur/sp.prev-1,'vs '+rangeLab(idx)+' '+(y-1))}</div>`:''}</div>`}).join('');
+  <div class="meta"><span>${ico('ft','ftc')}Fatture ${eur(F)}</span><span>${ico('cs','csc')}Cassa ${eur(Cc)}</span><span>${ico('avg')}${rangeLab(idx)} · media ${eur(S/idx.length)}/mese</span></div>${sp?`<div>${pill(sp.cur/sp.prev-1,'vs '+rangeLab(idx)+' '+(y-1))}</div>`:''}</div>`}).join('');
  const y=LAST.y;$('cumCard').hidden=!D[y-1];if(!D[y-1])return;
  $('cumTitle').textContent=`${y} contro ${y-1}`;
  const W=700,H=220,top=10,bot=24,ch=H-top-bot;let a=0;const cp=D[y-1].t.map(v=>v==null?null:(a+=v));a=0;const cc=D[y].t.map(v=>v==null?null:(a+=v));
@@ -607,7 +673,7 @@ function drawYears(){
  s+=`<polyline points="${pts(cp)}" fill="none" stroke="${mu}" stroke-width="2" stroke-dasharray="5 5"/>`;
  s+=`<polygon points="${X(f)},${top+ch} ${pts(cc)} ${X(li)},${top+ch}" fill="url(#cg)"/><polyline points="${pts(cc)}" fill="none" stroke="${gr}" stroke-width="3" stroke-linejoin="round"/>`;
  const sp=samePeriod(y);s+=`<circle cx="${X(li)}" cy="${Yv(cc[li])}" r="5" fill="${gr}"/><text x="${Math.min(X(li),W-90)}" y="${Yv(cc[li])-12}" text-anchor="middle" font-size="13" font-weight="700" fill="${gr}">${k(cc[li])}${sp?' ('+pc(sp.cur/sp.prev-1)+')':''}</text>`;
- $('cumul').innerHTML=s;$('cumLeg').innerHTML=`<span><i style="background:var(--tot)"></i>${y}</span><span><i style="background:var(--muted)"></i>${y-1}</span>`;
+ $('cumul').innerHTML=s;$('cumLeg').innerHTML=`<span>${ico('cal')}${y}</span><span>${ico('prev','pvc')}${y-1}</span>`;
 }
 
 // ---------- chiudi mese ----------
@@ -680,7 +746,7 @@ function show(v){$$('.view').forEach(x=>x.classList.toggle('on',x.id===v));$$('.
 $$('.tabbar button').forEach(b=>b.onclick=()=>show(b.dataset.v));
 document.addEventListener('click',e=>{const t=e.target.closest('[data-open]');if(t)show(t.dataset.open)});
 
-function renderAll(){
+function renderAll(){fillIcons();
  if(!LAST){show('v-empty');return}
  $('today').textContent=new Date().toLocaleDateString('it-IT',{weekday:'long',day:'numeric',month:'long'});
  if(!YEARS.includes(curY)){curY=LAST.y;sel=LAST.m}
