@@ -330,7 +330,7 @@ button:focus-visible{outline:2px solid var(--acc);outline-offset:2px}
  <div class="pad" id="pad"></div>
  <button class="lnk" type="button" id="lockForgot">Ho dimenticato il PIN</button>
  <button class="lnk" type="button" id="lockCancel" hidden>Annulla</button>
- <small style="opacity:.6;font-size:12px">versione 1.0.2</small>
+ <small style="opacity:.6;font-size:12px">versione 1.0.3</small>
 </div>
 
 <div class="toast" id="toast"></div>
@@ -338,7 +338,7 @@ button:focus-visible{outline:2px solid var(--acc);outline-offset:2px}
 
 <script>
 'use strict';
-const VERSION='1.0.2';
+const VERSION='1.0.3';
 const LS_DATA='incassi.data.v1', LS_SET='incassi.settings.v1';
 const M=['Gen','Feb','Mar','Apr','Mag','Giu','Lug','Ago','Set','Ott','Nov','Dic'];
 const ML=['Gennaio','Febbraio','Marzo','Aprile','Maggio','Giugno','Luglio','Agosto','Settembre','Ottobre','Novembre','Dicembre'];
@@ -636,7 +636,10 @@ function askPin(title,sub,msg){$('lock').hidden=false;$('lockTitle').textContent
 function shake(t){$('lockMsg').textContent=t;const d=$('dots');d.classList.remove('shake');void d.offsetWidth;d.classList.add('shake')}
 async function askPinOnce(title,sub){$('lockForgot').hidden=true;$('lockCancel').hidden=false;const p=await new Promise(r=>{askPin(title,sub);pinResolve=r;pinResolve.cancel=()=>r(null)});$('lockCancel').hidden=true;$('lock').hidden=true;return p}
 $('lockCancel').onclick=()=>pinResolve&&pinResolve.cancel&&pinResolve.cancel();
-$('lockForgot').onclick=()=>{$('lockMsg').textContent='Senza PIN i dati non si possono aprire. Puoi cancellarli dalle impostazioni di Safari e reimportare un backup.'};
+let forgotArmed=0;$('lockForgot').onclick=()=>{
+ if(forgotArmed===0){forgotArmed=1;$('lockMsg').textContent='Senza PIN i dati non si possono aprire. Puoi cancellarli, scegliere un nuovo PIN e reimportare il file storico. Tocca di nuovo per cancellare.';$('lockForgot').textContent='Cancella i dati e ricomincia';return}
+ if(forgotArmed===1){forgotArmed=2;$('lockMsg').textContent='Sei sicuro? I dati su questo iPad verranno cancellati. Tocca ancora per confermare.';$('lockForgot').textContent='Sì, cancella tutto';return}
+ try{localStorage.removeItem(LS_DATA)}catch(_){}location.reload()};
 
 async function unlockFlow(){
  const raw=lsGet(LS_DATA);
