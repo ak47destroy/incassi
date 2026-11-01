@@ -216,6 +216,54 @@ button:focus-visible{outline:2px solid var(--acc);outline-offset:2px}
   .pad{grid-template-columns:repeat(3,68px);gap:14px 20px}.pad button{width:68px;height:68px}
 }
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+
+/* mesi: barre con anno prima */
+.yseg button{display:flex;align-items:center;justify-content:center;gap:6px}
+.yseg svg{width:16px;height:16px;flex:none;opacity:.7}
+.yseg button.on svg{opacity:1;color:var(--acc)}
+#segMonths{margin-bottom:14px}
+.sumbar{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin-bottom:14px}
+.sumbar .sb{background:var(--card);border-radius:16px;box-shadow:var(--shadow);display:flex;flex-direction:column;align-items:center;text-align:center;gap:4px;padding:16px 10px}
+.sumbar small{color:var(--muted);font-size:12px;font-weight:600;text-transform:uppercase}
+.sumbar b{display:block;font-size:22px}
+.sumbar .ib{width:40px;height:40px;border-radius:12px;display:grid;place-items:center;background:var(--fill);color:var(--tot)}
+.sumbar .ib svg{width:22px;height:22px}
+.sumbar .sb.tot{background:linear-gradient(135deg,var(--h1),var(--h2));color:#fff}
+.sumbar .sb.tot small,.sumbar .sb.tot .sbp{color:rgba(255,255,255,.85)}
+.sumbar .sb.tot .ib{background:rgba(255,255,255,.18);color:#fff}
+.sumbar .sb.tot .pill{background:rgba(255,255,255,.92);color:#1c1c1e}
+.sumbar .sbp{font-size:12px;color:var(--muted)}
+.ftc{color:var(--ft)!important}.csc{color:var(--cs)!important}.pvc{color:#8a919b!important}
+.sumbar .ib.ftc,.sumbar .ib.csc{background:var(--fill)}
+.hbh,.hbr{display:grid;grid-template-columns:118px minmax(0,1fr) 92px 74px 74px;gap:10px;align-items:center}
+.hbh{font-size:10.5px;color:var(--muted);text-transform:uppercase;font-weight:600;padding:0 4px 6px;border-bottom:1px solid var(--sep)}
+.hbh span:nth-child(n+2){text-align:center}
+.hbr{padding:10px 4px;border-bottom:1px solid var(--sep);font-size:14px;cursor:pointer}
+.hbr:active{background:var(--fill)}
+.hbr:last-child{border-bottom:none}
+.hbr .m{font-weight:600;font-size:15px}
+.hbr .m small{display:flex;align-items:center;font-size:11.5px;color:var(--muted);font-weight:400;margin-top:2px;white-space:nowrap}
+.hbr .m .nt{display:block;font-size:11px;color:var(--muted);font-weight:400;white-space:normal}
+.mi{display:inline-grid;place-items:center;width:14px;height:14px;margin-right:4px;flex:none}
+.mi svg{width:14px;height:14px}
+.hbr .bw{position:relative;display:block;padding-bottom:16px}
+.hbr .bar{height:20px;display:flex;border-radius:6px;overflow:hidden;background:var(--fill)}
+.hbr .bar i{display:block;height:100%}
+.hbr .prev{display:block;height:6px;border-radius:3px;background:#c9ced6;margin-top:4px}
+.hbr .tick{position:absolute;top:-3px;width:2px;height:26px;background:#5f6670;border-radius:1px}
+.hbr .pl{position:absolute;left:0;bottom:0;font-size:11px;color:var(--muted);display:flex;align-items:center;white-space:nowrap}
+.hbr .v{display:flex;flex-direction:column;align-items:center;font-weight:700}
+.hbr .v small{font-size:11px;font-weight:600}
+.hbr .v small.up{color:var(--pos)}.hbr .v small.down{color:var(--neg)}
+.hbr .p{text-align:center}
+.hbr .pill{font-size:12px;padding:3px 6px}
+.hbr .cup{margin-left:4px}
+.hbr.sum{background:var(--fill);border-radius:12px;cursor:default;margin-top:6px}
+.leg2{display:flex;gap:16px;flex-wrap:wrap;justify-content:center;font-size:12px;color:var(--muted);margin-top:12px}
+.leg2>span{display:flex;align-items:center;gap:6px}
+.leg2 .li svg{width:16px;height:16px;display:block}
+@media (max-width:700px){.hbh,.hbr{grid-template-columns:84px minmax(0,1fr) 80px 66px}.hbr .p2,.hbh .p2{display:none}.sumbar b{font-size:17px}}
+@media (max-width:500px){.hbr .pl{display:none}.hbr .bw{padding-bottom:0}.sumbar .pill .l{display:none}.hbh,.hbr{gap:6px}}
 </style>
 </head>
 <body>
@@ -258,8 +306,9 @@ button:focus-visible{outline:2px solid var(--acc);outline-offset:2px}
   <!-- mesi -->
   <section class="view" id="v-months">
    <div class="lt"><div><div class="date">Tocca un mese per correggerlo</div><h1>Mesi</h1></div></div>
-   <div class="seg" id="segMonths"></div>
-   <div class="card tcard"><div class="tw"><table class="mt" id="monthTable"></table></div></div>
+   <div class="seg yseg" id="segMonths"></div>
+   <div id="monthSum"></div>
+   <div class="card" id="monthCard"></div>
   </section>
 
   <!-- anni -->
@@ -332,7 +381,7 @@ button:focus-visible{outline:2px solid var(--acc);outline-offset:2px}
  <div class="pad" id="pad"></div>
  <button class="lnk" type="button" id="lockForgot">Ho dimenticato il PIN</button>
  <button class="lnk" type="button" id="lockCancel" hidden>Annulla</button>
- <small style="opacity:.6;font-size:12px">versione 1.0.5</small>
+ <small style="opacity:.6;font-size:12px">versione 1.0.6</small>
 </div>
 
 <div class="toast" id="toast"></div>
@@ -340,7 +389,7 @@ button:focus-visible{outline:2px solid var(--acc);outline-offset:2px}
 
 <script>
 'use strict';
-const VERSION='1.0.5';
+const VERSION='1.0.6';
 const LS_DATA='incassi.data.v1', LS_SET='incassi.settings.v1';
 const M=['Gen','Feb','Mar','Apr','Mag','Giu','Lug','Ago','Set','Ott','Nov','Dic'];
 const ML=['Gennaio','Febbraio','Marzo','Aprile','Maggio','Giugno','Luglio','Agosto','Settembre','Ottobre','Novembre','Dicembre'];
@@ -467,7 +516,7 @@ function drawHL(){
   [C('tot'),`${ML[m]} ${y}`,`${ML[m]} ha incassato <b>${eur(d.t[m])}</b>, <b>${d.t[m]>=avg?'sopra':'sotto'}</b> la media mensile di ${eur(Math.abs(d.t[m]-avg))}.`,pill(mom(y,m),'vs '+prevLab(y,m))+pill(yoy(y,m),'vs '+ML[m].toLowerCase()+' '+(y-1)),barsMini(idx,d.t,null,m,C('tot'),null,i=>mom(y,i))],
   [C('ft'),`Ultimi ${last6.length} mesi`,ok(p6)?`Da ${ML[last6[0]].toLowerCase()} a ${ML[m].toLowerCase()} hai incassato <b>${pc(p6)}</b> rispetto agli stessi mesi del ${y-1}.`:`Da ${ML[last6[0]].toLowerCase()} a ${ML[m].toLowerCase()} hai incassato <b>${eur(sum(last6.map(i=>T(y,i))))}</b>.`,`<span class="pill na"><span class="dot" style="background:${C('ft')}55;width:8px;height:8px"></span>${y-1}</span><span class="pill na"><span class="dot" style="background:${C('ft')};width:8px;height:8px"></span>${y}</span>`,barsMini(last6,d.t,D[y-1]?D[y-1].t:null,m,C('ft'),C('ft')+'55',i=>yoy(y,i))],
   [C('cs'),`Cassa · ${y}`,`In ${ML[m].toLowerCase()} la cassa è stata <b>${eur(d.cs[m])}</b>, il <b>${Math.round(share*100)}%</b> dell'incasso del mese (media anno ${Math.round(shareAvg*100)}%).`,pill(csPrevM?d.cs[m]/csPrevM-1:null,'vs '+prevLab(y,m))+pill(csPrevY?d.cs[m]/csPrevY-1:null,'vs '+(y-1)),barsMini(idx,d.cs,null,m,C('cs'),null,null)],
-  ['#b8860b',`Mese migliore ${y}`,`Il mese con l'incasso più alto (fatture + cassa) è <b>${ML[best].toLowerCase()}</b>: ${eur(d.t[best])}.${second!=null?` Secondo: ${ML[second].toLowerCase()} con ${eur(d.t[second])}.`:''}`,pill(d.t[best]/avg-1,'sulla media')+pill(yoy(y,best),'vs '+ML[best].toLowerCase()+' '+(y-1)),barsMini(idx,d.t,null,best,'#d4a72c',null,null)]
+  ['#b8860b',`🏆 Mese migliore ${y}`,`Il mese con l'incasso più alto (fatture + cassa) è <b>${ML[best].toLowerCase()} 🏆</b>: ${eur(d.t[best])}.${second!=null?` Secondo: ${ML[second].toLowerCase()} con ${eur(d.t[second])}.`:''}`,pill(d.t[best]/avg-1,'sulla media')+pill(yoy(y,best),'vs '+ML[best].toLowerCase()+' '+(y-1)),barsMini(idx,d.t,null,best,'#d4a72c',null,null)]
  ];
  $('hl').innerHTML=cards.map(c=>`<div class="card"><h3><span class="dot" style="background:${c[0]}"></span><span>${c[1]}</span></h3><p>${c[2]}</p><div class="pills">${c[3]}</div>${c[4]}</div>`).join('');
 }
@@ -516,10 +565,26 @@ function drawLast(){const {y,m}=LAST;const rows=[];let yy=y,mm=m;for(let n=0;n<4
  const tb=tmp.querySelector('tbody');parts.slice(1).forEach(p=>{const t2=document.createElement('table');t2.innerHTML=p;tb.appendChild(t2.querySelector('tbody tr'))});
  $('lastTable').innerHTML=tmp.innerHTML;bindRows($('lastTable'));}
 let monthsY=null;
+const IC={
+ cal:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>',
+ tot:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><ellipse cx="12" cy="6" rx="7" ry="3"/><path d="M5 6v6c0 1.7 3.1 3 7 3s7-1.3 7-3V6M5 12v6c0 1.7 3.1 3 7 3s7-1.3 7-3v-6"/></svg>',
+ ft:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5M9 13h6M9 17h4"/></svg>',
+ cs:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="2" y="6" width="20" height="12" rx="2"/><circle cx="12" cy="12" r="2.5"/><path d="M6 10v.01M18 14v.01"/></svg>',
+ prev:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 3v5h5M12 7v5l3 2"/></svg>'};
 function drawMonths(){if(!YEARS.includes(monthsY))monthsY=LAST.y;
- $('segMonths').innerHTML=YEARS.map(y=>`<button type="button" data-y="${y}" class="${y===monthsY?'on':''}">${y}</button>`).join('');
+ const y=monthsY,d=D[y],P=D[y-1]||null,idx=monthsOf(y),best=bestOf(y);
+ $('segMonths').innerHTML=YEARS.map(yy=>`<button type="button" data-y="${yy}" class="${yy===y?'on':''}">${IC.cal}${yy}</button>`).join('');
  $$('#segMonths button').forEach(b=>b.onclick=()=>{monthsY=+b.dataset.y;drawMonths()});
- const ii=monthsOf(monthsY).slice().reverse();$('monthTable').innerHTML=tableHTML(monthsY,ii,true,true);bindRows($('monthTable'))}
+ const S=sum(idx.map(i=>d.t[i])),F=sum(idx.map(i=>d.ft[i])),Cs=sum(idx.map(i=>d.cs[i])),sp=samePeriod(y);
+ const shr=v=>S?Math.round(v/S*100)+'% del totale':'';
+ $('monthSum').innerHTML=`<div class="sumbar"><div class="sb tot"><span class="ib">${IC.tot}</span><small>Totale ${y}</small><b class="num">${eur(S)}</b><span class="sbp">${sp?pill(sp.cur/sp.prev-1,'vs '+(y-1)):rangeLab(idx)}</span></div><div class="sb"><span class="ib ftc">${IC.ft}</span><small>Fatture</small><b class="num">${eur(F)}</b><span class="sbp">${shr(F)}</span></div><div class="sb"><span class="ib csc">${IC.cs}</span><small>Cassa</small><b class="num">${eur(Cs)}</b><span class="sbp">${shr(Cs)}</span></div></div>`;
+ const pv=i=>P?P.t[i]:null;
+ const mx=Math.max(1,...idx.map(i=>d.t[i]||0),...idx.map(i=>pv(i)||0));
+ const sg=n=>(n>=0?'+':'−')+grp(n)+' €';
+ const rows=idx.slice().reverse().map(i=>{const v=d.t[i]||0,p=pv(i),hasP=p!=null;
+  return `<div class="hbr" data-k="${key(y,i)}"><span class="m">${ML[i]}${i===best&&idx.length>1?'<span class="cup">🏆</span>':''}<small><span class="mi ftc">${IC.ft}</span>${grp(d.ft[i]||0)}</small><small><span class="mi csc">${IC.cs}</span>${grp(d.cs[i]||0)}</small>${d.note[i]?`<span class="nt">${esc(d.note[i])}</span>`:''}</span><span class="bw"><span class="bar" style="width:${v/mx*100}%"><i style="width:${v?(d.ft[i]||0)/v*100:0}%;background:var(--ft)"></i><i style="width:${v?(d.cs[i]||0)/v*100:0}%;background:var(--cs)"></i></span>${hasP?`<span class="prev" style="width:${p/mx*100}%"></span><span class="tick" style="left:${p/mx*100}%"></span><span class="pl"><span class="mi">${IC.prev}</span>${y-1}: ${eur(p)}</span>`:''}</span><span class="v num">${eur(v)}${hasP?`<small class="${cls(v-p)}">${sg(v-p)}</small>`:''}</span><span class="p p2">${pill(mom(y,i))}</span><span class="p">${pill(yoy(y,i))}</span></div>`}).join('');
+ $('monthCard').innerHTML=`<div class="hbh"><span>Mese</span><span>${y} · fatture + cassa</span><span>Incasso</span><span class="p2">Vs mese</span><span>Vs anno</span></div><div>${rows}</div><div class="leg2"><span><span class="li ftc">${IC.ft}</span>Fatture ${y}</span><span><span class="li csc">${IC.cs}</span>Cassa ${y}</span>${P?`<span><span class="li pvc">${IC.prev}</span>Stesso mese ${y-1}</span>`:''}</div>`;
+ $$('#monthCard .hbr[data-k]').forEach(r=>r.onclick=()=>openEdit(r.dataset.k))}
 
 // ---------- anni ----------
 function drawYears(){
