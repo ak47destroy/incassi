@@ -446,7 +446,7 @@ body.hide input{-webkit-text-security:disc}
  <div class="pad" id="pad"></div>
  <button class="lnk" type="button" id="lockForgot">Ho dimenticato il PIN</button>
  <button class="lnk" type="button" id="lockCancel" hidden>Annulla</button>
- <small style="opacity:.6;font-size:12px">versione 1.0.8</small>
+ <small style="opacity:.6;font-size:12px">versione 1.0.9</small>
 </div>
 
 <div class="toast" id="toast"></div>
@@ -454,7 +454,7 @@ body.hide input{-webkit-text-security:disc}
 
 <script>
 'use strict';
-const VERSION='1.0.8';
+const VERSION='1.0.9';
 const LS_DATA='incassi.data.v1', LS_SET='incassi.settings.v1';
 const M=['Gen','Feb','Mar','Apr','Mag','Giu','Lug','Ago','Set','Ott','Nov','Dic'];
 const IC={
@@ -719,7 +719,7 @@ function openEdit(kk){const r=DATA.mesi[kk],[y,mm]=kk.split('-').map(Number);
  document.body.appendChild(bg);const close=()=>bg.remove();
  bg.onclick=e=>{if(e.target===bg)close()};bg.querySelector('[data-x]').onclick=close;
  bg.querySelector('[data-s]').onclick=async()=>{const ft=parseNum(bg.querySelector('#eFt').value),cs=parseNum(bg.querySelector('#eCs').value),cp=parseNum(bg.querySelector('#eCp').value);if(ft==null){toast('Scrivi il totale fatture');return}
-  DATA.mesi[kk]={fatture:ft,cassa:cs||0,cassaProgressiva:cp,...(r.nota?{nota:r.nota}:{})};await persist();build();renderAll();close();toast('✓ Modifica salvata')};
+  const keepNota=r.nota&&(cs||0)===(r.cassa||0);DATA.mesi[kk]={fatture:ft,cassa:cs||0,cassaProgressiva:cp,...(keepNota?{nota:r.nota}:{})};await persist();build();renderAll();close();toast('✓ Modifica salvata')};
  let armed=false;bg.querySelector('[data-d]').onclick=async e=>{if(!armed){armed=true;e.target.textContent='Tocca di nuovo per eliminare';return}delete DATA.mesi[kk];await persist();build();renderAll();close();toast('Mese eliminato')};
 }
 
