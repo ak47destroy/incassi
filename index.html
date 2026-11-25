@@ -274,8 +274,8 @@ button:focus-visible{outline:2px solid var(--acc);outline-offset:2px}
 .card h3 .sub::before{content:"· "}
 .card h3 .ic{color:var(--tot)}
 .hero{text-align:center}
-.li{display:inline-grid;place-items:center;width:18px;height:18px;flex:none}
-.li svg{width:16px;height:16px;display:block}
+.leg2 .li{display:inline-grid;place-items:center;width:18px;height:18px;flex:none}
+.leg2 .li svg{width:16px;height:16px;display:block}
 .rt td,.rt th{padding-left:4px;padding-right:4px}
 .rt .pill{font-size:12px;padding:3px 6px}
 @media (min-width:641px) and (max-width:900px){.rings{grid-template-columns:150px minmax(0,1fr);gap:14px}.rings>svg{width:150px;height:150px}.rt{font-size:13px}}
@@ -446,7 +446,7 @@ body.hide input{-webkit-text-security:disc}
  <div class="pad" id="pad"></div>
  <button class="lnk" type="button" id="lockForgot">Ho dimenticato il PIN</button>
  <button class="lnk" type="button" id="lockCancel" hidden>Annulla</button>
- <small style="opacity:.6;font-size:12px">versione 1.1.0</small>
+ <small style="opacity:.6;font-size:12px">versione 1.1.1</small>
 </div>
 
 <div class="toast" id="toast"></div>
@@ -454,7 +454,7 @@ body.hide input{-webkit-text-security:disc}
 
 <script>
 'use strict';
-const VERSION='1.1.0';
+const VERSION='1.1.1';
 const LS_DATA='incassi.data.v1', LS_SET='incassi.settings.v1';
 const M=['Gen','Feb','Mar','Apr','Mag','Giu','Lug','Ago','Set','Ott','Nov','Dic'];
 const IC={
@@ -731,7 +731,7 @@ $('sExport').onclick=async()=>{const env=await encryptObj({app:'incassi',version
  const file=new File([blob],name,{type:'application/json'});
  try{if(navigator.canShare&&navigator.canShare({files:[file]})){await navigator.share({files:[file],title:'Backup Incassi'});}else{const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download=name;document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(a.href),4000)}
   DATA.lastBackup=Date.now();await persist();drawSettingsInfo();toast('✓ Backup pronto: salvalo in File')}catch(e){if(e.name!=='AbortError')toast('Backup non riuscito')}};
-function drawSettingsInfo(){$('lastBk').textContent=DATA&&DATA.lastBackup?'ultimo '+new Date(DATA.lastBackup).toLocaleDateString('it-IT'):'mai fatto';$('ver').textContent='Incassi '+VERSION}
+function drawSettingsInfo(){$('lastBk').textContent=DATA&&DATA.lastBackup?'ultimo '+new Date(DATA.lastBackup).toLocaleDateString('it-IT'):'mai fatto';$('ver').textContent='STATS '+VERSION}
 $('sImport').onclick=()=>$('fileIn').click();$('emptyImport').onclick=()=>$('fileIn').click();
 $('emptyStart').onclick=async()=>{DATA={mesi:{}};await persist();show('v-close');fillCloseMonths()};
 $('fileIn').onchange=async e=>{const f=e.target.files[0];e.target.value='';if(!f)return;
